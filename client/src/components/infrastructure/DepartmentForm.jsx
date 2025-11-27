@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../../config';
 import './InfrastructureForm.css';
 
 const DepartmentForm = ({ onDepartmentAdded }) => {
@@ -13,7 +14,7 @@ const DepartmentForm = ({ onDepartmentAdded }) => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/infrastructure/departments', {
+            const response = await fetch(`${API_URL}/infrastructure/departments`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, head_doctor_id: headDoctorId }),

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../../config';
 import './PatientForm.css';
 
 const PatientForm = ({ onPatientAdded }) => {
@@ -23,7 +24,7 @@ const PatientForm = ({ onPatientAdded }) => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/patients', {
+            const response = await fetch(`${API_URL}/patients`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

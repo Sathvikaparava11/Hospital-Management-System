@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaUserMd, FaUsers, FaProcedures, FaBuilding } from 'react-icons/fa';
 import StatCard from '../components/dashboard/StatCard';
+import { API_URL } from '../config';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/dashboard/stats')
+        fetch(`${API_URL}/dashboard/stats`)
             .then((res) => res.json())
             .then((data) => {
                 setStats(data);

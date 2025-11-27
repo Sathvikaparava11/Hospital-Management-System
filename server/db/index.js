@@ -5,13 +5,22 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const pool = new Pool({
-    user: process.env.POSTGRES_USER || 'admin',
-    host: process.env.POSTGRES_HOST || 'localhost',
-    database: process.env.POSTGRES_DB || 'hospital_management',
-    password: process.env.POSTGRES_PASSWORD || 'password123',
-    port: process.env.POSTGRES_PORT || 5432,
-});
+const pool = new Pool(
+    process.env.DATABASE_URL
+        ? {
+            connectionString: process.env.DATABASE_URL,
+            ssl: {
+                rejectUnauthorized: false, // Required for some managed Postgres services
+            },
+        }
+        : {
+            user: process.env.POSTGRES_USER || 'admin',
+            host: process.env.POSTGRES_HOST || 'localhost',
+            database: process.env.POSTGRES_DB || 'hospital_management',
+            password: process.env.POSTGRES_PASSWORD || 'password123',
+            port: process.env.POSTGRES_PORT || 5432,
+        }
+);
 
 const initDb = async () => {
     try {

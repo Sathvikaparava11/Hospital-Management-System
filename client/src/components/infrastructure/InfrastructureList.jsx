@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config';
 import './InfrastructureList.css';
 
 const InfrastructureList = () => {
@@ -13,8 +14,8 @@ const InfrastructureList = () => {
     const fetchData = async () => {
         try {
             const [deptRes, roomRes] = await Promise.all([
-                fetch('http://localhost:5000/api/infrastructure/departments'),
-                fetch('http://localhost:5000/api/infrastructure/rooms')
+                fetch(`${API_URL}/infrastructure/departments`),
+                fetch(`${API_URL}/infrastructure/rooms`)
             ]);
 
             const deptData = await deptRes.json();

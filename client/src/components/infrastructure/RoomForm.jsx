@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../../config';
 import './InfrastructureForm.css';
 
 const RoomForm = ({ onRoomAdded }) => {
@@ -21,7 +22,7 @@ const RoomForm = ({ onRoomAdded }) => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/infrastructure/rooms', {
+            const response = await fetch(`${API_URL}/infrastructure/rooms`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

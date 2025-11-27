@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../../config';
 import './DoctorForm.css';
 
 const DoctorForm = ({ onDoctorAdded }) => {
@@ -20,7 +21,7 @@ const DoctorForm = ({ onDoctorAdded }) => {
 
     const fetchDepartments = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/infrastructure/departments');
+            const response = await fetch(`${API_URL}/infrastructure/departments`);
             if (response.ok) {
                 const data = await response.json();
                 setDepartments(data);
@@ -40,7 +41,7 @@ const DoctorForm = ({ onDoctorAdded }) => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/doctors', {
+            const response = await fetch(`${API_URL}/doctors`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

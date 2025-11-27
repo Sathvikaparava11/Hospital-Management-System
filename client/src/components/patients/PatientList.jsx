@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config';
 import './PatientList.css';
 
 const PatientList = () => {
@@ -12,7 +13,7 @@ const PatientList = () => {
 
     const fetchPatients = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/patients');
+            const response = await fetch(`${API_URL}/patients`);
             const data = await response.json();
             setPatients(data);
             setLoading(false);
