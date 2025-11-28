@@ -1,13 +1,16 @@
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xl);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
 }
 
 .dashboard-header h2 {
-    font-size: var(--font-size-2xl);
     color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 0.5rem;
 }
 
 .dashboard-header p {
@@ -17,43 +20,64 @@
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--spacing-lg);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .dashboard-sections {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--spacing-lg);
+    gap: 1.5rem;
 }
 
 .section-card {
-    background-color: var(--surface-color);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
-    min-height: 300px;
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .section-card h3 {
-    font-size: var(--font-size-lg);
     color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: var(--spacing-sm);
 }
 
 .empty-state {
     color: var(--text-secondary);
     font-style: italic;
     text-align: center;
-    margin-top: var(--spacing-xl);
+    padding: 2rem 0;
 }
 
-.loading {
+.department-list {
+    list-style: none;
+    padding: 0;
+}
+
+.department-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: var(--font-size-lg);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.department-item:last-child {
+    border-bottom: none;
+}
+
+.dept-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.dept-count {
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
     color: var(--text-secondary);
 }
